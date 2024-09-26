@@ -11,18 +11,27 @@ const RoutesProduct=require('./routes/RoutesProduct')
 const Routeuser= require("./routes/RoutesUSer")
 const cors = require("cors");
 
-app.use(cookieParser())
 const corsOptions = {
-    origin: 'http://localhost:3000',  
-    credentials: true,      
- };
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    credentials: true, 
+  };
 
 
 connect()
 app.use(cors(corsOptions))
+
+app.options('*', cors(corsOptions));
 app.use(express.json())
 app.use(Routeuser)
 app.use(RoutesProduct)
+
+
+
+ 
+
+
 
 
 
