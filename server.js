@@ -24,8 +24,9 @@ app.use(cors(corsOptions))
 
 app.options('*', cors(corsOptions));
 app.use(express.json())
-app.use(Routeuser)
-app.use(RoutesProduct)
+app.use('/api/product', RoutesProduct)
+app.use('/api/user',Routeuser)
+
 
 
 
